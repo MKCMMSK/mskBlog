@@ -23,7 +23,7 @@ jobs:
       postgres:
         image: postgres:13.4
         env:
-          POSTGRES_PASSWORD: "secret"
+          POSTGRES_PASSWORD: "postgres"
         ports: ["5432:5432"]
         options:
           --health-cmd pg_isready
@@ -47,8 +47,8 @@ jobs:
         env:
           RAILS_ENV: test
           PGHOST: localhost
-          PGUSER: colin
-          PGPASSWORD: secret
+          PGUSER: postgres
+          PGPASSWORD: postgres
         run: bundle exec rails db:setup
 
       - name: Run tests
