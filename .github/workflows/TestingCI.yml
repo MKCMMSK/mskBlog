@@ -46,6 +46,8 @@ jobs:
         PGUSER: postgres
         PGPASSWORD: postgres
       run: bundle exec rails db:setup
-
+      
     - name: Run tests
+      env: 
+        CODECOV_TOKEN: fcee2b87-f529-4633-a97f-6b4a9f07677c
       run: bundle exec rspec
