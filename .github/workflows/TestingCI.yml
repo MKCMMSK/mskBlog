@@ -51,3 +51,14 @@ jobs:
       env: 
         CODECOV_TOKEN: fcee2b87-f529-4633-a97f-6b4a9f07677c
       run: bundle exec rspec
+
+    - name: Upload to Codecov
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./coverage/codecov-result.json # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
