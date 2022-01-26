@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+[![codecov](https://codecov.io/gh/MKCMMSK/mskBlog/branch/main/graph/badge.svg?token=YPFC8KV4IQ)](https://codecov.io/gh/MKCMMSK/mskBlog)
