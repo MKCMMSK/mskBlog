@@ -48,6 +48,8 @@ jobs:
       run: bundle exec rails db:setup
       
     - name: Run tests
+      env: 
+        POSTGRES_PORT: 5432
       run: bundle exec rspec
 
     - name: Upload to Codecov
