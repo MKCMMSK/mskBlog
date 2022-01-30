@@ -58,6 +58,7 @@ development:
 test:
   <<: *default
   database: mskblog_test
+  host: localhost
   username: <%= ENV['PGUSER'] %> 
   password: <%= ENV['PGPASSWORD'] %> 
 
