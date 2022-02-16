@@ -38,7 +38,12 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        
+    
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.13.1
+
     - name: Setup DB
       env:
         RAILS_ENV: test
@@ -47,8 +52,19 @@ jobs:
         PGPASSWORD: postgres
       run: bundle exec rails db:setup
       
+    - name: Install yarn
+      run: npm install --global yarn
+
+    - name: Setup Yarn
+      uses: borales/actions-yarn@v2.3.0
+      with:
+        cmd: install
+
+    - name: Compile Assets
+      run: bundle exec rails webpacker:compile
+
     - name: Run tests
-      env: 
+      env:
         PGUSER: postgres
         PGPASSWORD: postgres
       run: bundle exec rspec
