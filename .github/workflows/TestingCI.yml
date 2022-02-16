@@ -38,7 +38,12 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        
+    
+    - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.1
+          
     - name: Setup DB
       env:
         RAILS_ENV: test
